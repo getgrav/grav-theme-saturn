@@ -1,0 +1,15 @@
+{% extends 'partials/base.html.twig' %}
+{% block content %}
+<article class="box post post-excerpt">
+  <header>
+    <h2>{{ page.header.title }}</h2>
+  </header>
+   {{ page.content }}
+
+   {% if config.plugins.simple_form.enabled %}
+    {% set simple_form_config = page.header.simple_form ?: config.themes.striped.simple_form %}
+      {{ simple_form(simple_form_config) }}
+    {% endif %}
+
+</article>
+{% endblock %}

@@ -1,0 +1,70 @@
+<div id="sidebar">
+<h1 id="logo"><a href="{{ base_url_absolute }}">{{ site.title|upper }}</a></h1>
+
+{% include 'partials/navigation.html.twig' %}
+
+{% if config.plugins.simplesearch.enabled %}
+<section class="box search">
+    {% include 'partials/simplesearch_searchbox.html.twig' %}
+</section>
+{% endif %}
+{% if config.plugins.relatedpages.enabled and related_pages|length > 0 %}
+<section class="box recent-comments">
+    <header>
+        <h2>Related Posts</h2>
+    </header>
+    {% include 'partials/relatedpages.html.twig' %}
+</section>
+{% endif %}
+{% if config.plugins.random.enabled %}
+<section class="box text-style1">
+    <div class="inner">
+        <header>
+            <h2>Random Article</h2>
+        </header>
+        <a href="{{ base_url_relative }}/random"><i class="fa fa-retweet"></i> I'm Feeling Lucky!</a>
+    </div>
+</section>
+{% endif %}
+{% if config.plugins.archives.enabled %}
+    <section class="box recent-posts">
+        <header>
+            <h2>Archives</h2>
+        </header>
+        {% include 'partials/archives.html.twig' %}
+    </section>
+{% endif %}
+
+{% if config.plugins.taxonomylist.enabled %}
+<section class="box recent-comments">
+    <header>
+        <h2>Popular Tags</h2>
+    </header>
+    {% include 'partials/taxonomylist.html.twig' with {'taxonomy':'tag'} %}
+</section>
+{% endif %}
+
+{% if site.calendar %}
+<section class="box calendar">
+    <div class="inner">
+        <div id="datepicker"></div>
+    </div>
+</section>
+{% endif %}
+
+{% if config.plugins.feed.enabled %}
+<section class="box text-style1">
+    <header>
+        <h2>Syndicate</h2>
+    </header>
+    <a class="button" style="padding-right: 1em;padding-left: 1em;" href="{{ feed_url }}.atom"><i class="fa fa-rss-square"></i> Atom 1.0</a>
+    <a class="button" style="padding-right: 1em;padding-left: 1em;" href="{{ feed_url }}.rss"><i class="fa fa-rss-square"></i> RSS</a>
+</section>
+{% endif %}
+
+<ul id="copyright">
+    <li>&copy; {{ site.author.name }}</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+    <li>Demo Images: <a href="http://unsplash.com">Unsplash</a></li>
+</ul>
+
+</div>
