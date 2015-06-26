@@ -11,17 +11,6 @@
   {% endif  %}
    
 	{% block content %}
-
-    {% if site.calendar %}
-        <script type="text/javascript">
-         $(function() {
-            $( "#datepicker" ).datepicker( "setDate", "{{ page.date|date("m") }}/{{ page.date|date("d") }}/{{ page.date|date("Y") }}" );
-        });
-        </script>
-        {% endif %}
-
-
-
       {% if config.plugins.breadcrumbs.enabled %}
         {% include 'partials/breadcrumbs.html.twig' %}
         {% endif %}

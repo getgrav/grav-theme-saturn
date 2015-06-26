@@ -1,67 +1,86 @@
 <!DOCTYPE html>
-<!--[if lt IE 8 ]><html class="no-js ie ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]><html class="no-js ie ie8" lang="en"> <![endif]-->
-<!--[if IE 9 ]><html class="no-js ie ie9" lang="en"> <![endif]-->
-<!--[if (gte IE 8)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
 <head>
     {% block head %}
         <meta charset="utf-8" />
         <title>{% if header.title %}{{ header.title }} | {% endif %}{{ site.title }}</title>
         {% include 'partials/metadata.html.twig' %}
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-        <link rel="icon" type="image/png" href="{{ url('theme://images/favicon.png') }}" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" type="image/png" href="{{ url('theme://img/favicon.png') }}" />
 
         {% block javascripts %}
-            <!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
             {% do assets.add('jquery',101) %}
-            {% do assets.addJs('theme://js/skel.min.js') %}
-            {% do assets.addJs('theme://js/skel-layers.min.js') %}
+            {% do assets.addJs('theme://js/kube.min.js') %}
         {% endblock %}
         {{ assets.js() }}
-
-        {% include 'partials/init.html.twig' %}
-
-         {% if site.calendar %}
-         <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-         {% endif %}
-
         {% block stylesheets %}
-            {% do assets.addCss('theme://css/skel.css') %}
-            {% do assets.addCss('theme://css/style.css') %}
-            {% do assets.addCss('theme://css/style-desktop.css') %}
-            {% do assets.addCss('theme://css/style-wide.css') %}
+            {% do assets.addCss('theme://css/kube.min.css') %}
+            {% do assets.addCss('theme://css/font-awesome.min.css') %}
+            {% do assets.addCss('theme://css/custom.min.css') %}
         {% endblock %}
-        <noscript>
-            {{ assets.css() }}
-        </noscript>
-        <!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+        {{ assets.css() }}
 
-        {% if site.calendar %}
-        <script type="text/javascript">
-         $(function() {
-            $( "#datepicker" ).datepicker({
-                hideIfNoPrevNext: true
-            });
-        });
-        </script>
-        {% endif %}
-        
+        <link href="http://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">
         {% endblock head%}
     </head>
-    <body class="{{ site.sidebar_position }}-sidebar">
-        <div id="wrapper">
+    <body>
+
+        <div class="main-nav">
+            <div class="container">
+                <header class="group top-nav">
+                    <nav class="navbar logo-w navbar-left" >
+                        <a class="logo" href="{{ base_url_absolute }}">{{ site.title }}</a>
+                    </nav>
+                    <div class="navigation-toggle" data-tools="navigation-toggle" data-target="#navbar-1">
+                        <span class="logo">{{ site.title }}</span>
+                    </div>
+                     {% include 'partials/navigation.html.twig' %}
+                </header>
+            </div>
+        </div>
+
+        <div class="intro">
+            <div class="container">
+                <div class="units-row">
+                    <div class="unit-10">
+                        <img class="img-intro" src="{{ url('theme://img/' ~ site.intro_avatar ) }}" alt="">
+                    </div>
+                    <div class="unit-90">
+                        <p class="p-intro">{{ site.intro }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         {% block body %}
-            <div id="content">
-                <div class="inner">
+            <div class="content">
+                <div class="container">
                     {% block content %}{% endblock %}
                 </div>
             </div>
         {% endblock %}
-        {% block sidebar %}
-            {% include 'partials/sidebar.html.twig' %}
-        {% endblock %}
 
-        </div>
+        <footer>
+            <div class="container">
+                <div class="units-row">
+                    <div class="unit-50">
+                        <p class="text-centered foot-cp">
+                            <a href="{{ site.author.url }}">{{ site.author.footer }}</a>
+                        </p>
+                    </div>
+                    <div class="unit-50">
+                        <ul class="social list-flat right">
+                        {% for item in site.social %}
+                            <li><a href="{{ item.link }}"><i class="fa fa-{{ item.icon }}"></i></a></li>
+                        {% endfor %}
+                        </ul>
+                    </div>
+                    <p class="text-centered foot-cp">
+                        <a href="{{ site.author.url2}}">{{ site.author.footer2 }}</a>
+                    </p>
+                </div>
+            </div>
+        </footer>
 
     </body>
 </html>

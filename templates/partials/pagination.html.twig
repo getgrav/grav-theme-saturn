@@ -1,30 +1,29 @@
 {% if pagination|length > 1 %}
+    <div class="units-row">
+    <div class="unit-100"> 
+        <ul class="pagination">
+                {% if pagination.hasPrev %}
+                    <li><a rel="prev" href="{{ base_url }}{{ pagination.params }}{{ pagination.prevUrl }}">&laquo;</a></li>
+                    {% else %}
+                    <li><span>&laquo;</span></li>
+                {% endif %}
 
-<div class="pagination">
-    <div class="pages">
-    {% if pagination.hasPrev %}
-        <a rel="prev" href="{{ base_url }}{{ pagination.params }}{{ pagination.prevUrl }}">&laquo;</a>
-    {% else %}
-        <span>&laquo;</span>
-    {% endif %}
+                {% for paginate in pagination %}
+                    {% if paginate.isCurrent %}
+                        <li class="active"><a href="#">{{ paginate.number }}</a></li>
+                        {% elseif paginate.isInDelta %}
+                        <li><a href="{{ base_url }}{{ pagination.params }}{{ paginate.url }}">{{ paginate.number }}</a></li>
+                        {% elseif paginate.isDeltaBorder %}
+                        <li>&hellip;</li>
+                    {% endif %}
 
-    {% for paginate in pagination %}
-
-        {% if paginate.isCurrent %}
-            <span>{{ paginate.number }}</span>
-        {% elseif paginate.isInDelta %}
-            <a href="{{ base_url }}{{ pagination.params }}{{ paginate.url }}">{{ paginate.number }}</a>
-        {% elseif paginate.isDeltaBorder %}
-            <li class="gap"><span>&hellip;</span>
-        {% endif %}
-
-    {% endfor %}
-    {% if pagination.hasNext %}
-        <a rel="next" href="{{ base_url }}{{ pagination.params }}{{ pagination.nextUrl }}">&raquo;</a>
-    {% else %}
-        <span>&raquo;</span>
-    {% endif %}
+                {% endfor %}
+                {% if pagination.hasNext %}
+                    <li><a rel="next" href="{{ base_url }}{{ pagination.params }}{{ pagination.nextUrl }}">&raquo;</a></li>
+                    {% else %}
+                    <li><span>&raquo;</span></li>
+                {% endif %}
+            </ul>
+        </div>
 </div>
-</div>
-
 {% endif %}
