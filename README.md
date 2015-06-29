@@ -8,12 +8,14 @@ Saturn – Free Grav Theme, is a beautiful cosmic website template. Customize it
 
 * HTML5 and CSS3
 * Fully Responsive
-* Various templates for presenting your content
 * Menu
-* Simple feature with background
+* Feeds and Pagination support
+* Simple intro section with background
 * Styling for all basic page elements
 * Cross browser compatible
-* Support for TAGS
+* Support for tags
+* Based on Kube framework
+
 
 # Installation
 
