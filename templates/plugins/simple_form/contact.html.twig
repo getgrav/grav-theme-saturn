@@ -1,5 +1,5 @@
 {% if fields | length > 1 %}
-    <form name="simple_form" id="simple_form" action="https://getsimpleform.com/messages?form_api_token={{ token }}" enctype="multipart/form-data" method="post">
+    <form name="simple_form" id="simple_form" action="https://getsimpleform.com/messages?form_api_token={{ token }}" enctype="multipart/form-data" method="post" class="forms">
 
         {% for key, field in fields %}
             <div id="simple_form-{{ key }}">
@@ -15,7 +15,7 @@
                     <textarea rows="8" id="simple_form-field-{{ key }}" name="{{ key }}" class="{{ field.class }}" placeholder="{{ field.placeholder }}" {% if field.required %}required="required"{% endif %}>{{ field.default }}</textarea>
                 {% elseif field.type == 'submit' %}
                     <br />
-                    <input type="submit" id="simple_form-field-{{ key }}" name="{{ key }}" class="{{ field.class }}" value="{{ field.title }}" />
+                    <input type="submit" id="simple_form-field-{{ key }}" name="{{ key }}" class="{{ field.class }} btn btn-big" value="{{ field.title }}" />
                 {% elseif field.type in ['select'] %}
                     <select id="simple_form-field-{{ key }}" name="{{ key }}" class="{{ field.class }}" {% if field.required %}required="required"{% endif %}>
                         {% if field.default %}
