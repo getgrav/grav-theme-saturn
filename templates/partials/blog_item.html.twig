@@ -1,0 +1,61 @@
+<div class="post">
+    {% if page.header.link %}
+        <a href="{{ page.header.link }}"><h1>{{ page.title }}</h1></a>
+        {% else %}
+        <a href="{{ page.url }}"> <h1>{{ page.title }}</h1></a>
+    {% endif %}
+    <hr>
+    <div class="in-content">
+        {% if page.header.continue_link is sameas(false) %}
+            {{ page.content }}
+            {% if not truncate %}
+                {% set show_prev_next = true %}
+                {% endif %}
+                {% elseif truncate and page.summary != page.content %}
+                {{ page.summary }}
+                <a class="read-more" href="{{ page.url }}">Read more</a>
+                {% elseif truncate %}
+                {{ page.content|truncate(550) }}
+                <a class="read-more" href="{{ page.url }}">Read more</a>
+                {% else %}
+                {{ page.content }}
+                {% set show_prev_next = true %}
+        {% endif %}
+
+    </div>
+
+    <div class="foot-post">
+        <div class="units-row">
+            <div class="unit-100">
+                <strong>Date: </strong>
+                <span>{{ page.date|date() }}</span> 
+            </div>  
+            {% if page.header.author %}
+                <div class="unit-100">
+                    <strong>Author: </strong>
+                    <span>{{ page.header.author }}</span>
+                </div>
+            {% endif %}
+            {% if page.taxonomy.tag %}
+                <div class="unit-100">
+                    <strong>Tags: </strong>
+                    {% for tag in page.taxonomy.tag %}
+                        <a href="{{ base_url }}/tag{{ config.system.param_sep }}{{ tag }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}  
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    {% if show_prev_next %}
+        <p class="prev-next">
+            {% if not page.isLast %}
+                <a class="btn btn-black" href="{{ page.prevSibling.url }}"><i class="fa fa-arrow-left"></i> PREVIOUS</a>
+            {% endif %}
+
+            {% if not page.isFirst %}
+                <a class="btn btn-black" href="{{ page.nextSibling.url }}">NEXT <i class="fa fa-arrow-right"></i></a>
+            {% endif %}
+        </p>
+    {% endif %}
+</div>
