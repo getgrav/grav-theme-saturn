@@ -7,9 +7,9 @@
    {{ page.content }}
 
    {% if config.plugins.simple_form.enabled %}
-    {% set simple_form_config = page.header.simple_form ?: config.themes.striped.simple_form %}
+    {% set simple_form_config = page.header.simple_form ?: config.themes.saturn.simple_form %}
       {{ simple_form(simple_form_config) }}
-    {% endif %}
+   {% endif %}
 
 </article>
 {% endblock %}
