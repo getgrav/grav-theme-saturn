@@ -75,3 +75,8 @@ If you want to set Saturn as the default theme, you can do so by following these
 * Clear the Grav cache. The simplest way to do this is by going to the root Grav directory in Terminal and typing `bin/grav clear-cache`.
 
 Once this is done, you should be able to see the new theme on the frontend. Keep in mind any customizations made to the previous theme will not be reflected as all of the theme and templating information is now being pulled from the **saturn** folder.
+
+# Credits
+* Header Image: [Oliver Wendel](https://unsplash.com/c_ow)
+* Post Image: [warszawianka](http://www.freestockphotos.biz/stockphoto/15150) - Public Domain
+* [Unsplash](https://unsplash.com/)
