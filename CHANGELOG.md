@@ -1,3 +1,11 @@
+# v1.3.0
+## 01/06/2016
+
+1. [](#new)
+    * Add form nonce
+1. [](#bugfix)
+	* Fixed footnotes styling    
+
 # v1.2.0
 ## 10/29/2015
 

@@ -15,4 +15,6 @@
 	    <button class=" btn btn-big" type="{{ button.type|default('submit') }}">{{ button.value|default('Submit') }}</button>
 	{% endfor %}
 	</div>
+
+  {{ nonce_field('form', 'form-nonce') }}	
 </form>
