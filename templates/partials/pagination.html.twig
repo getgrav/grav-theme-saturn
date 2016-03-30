@@ -1,4 +1,7 @@
 {% if pagination|length > 1 %}
+{% if base_url == '' %}
+    {% set base_url = '/' %}
+{% endif %}
 <div class="units-row">
     <div class="unit-100">
         <ul class="pagination">
