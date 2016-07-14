@@ -1,3 +1,14 @@
+# v1.4.0
+## 07/14/2016
+
+1. [](#improved)
+    * Remove unneeded streams from Theme YAML
+    * Delete unused composer.json
+    * Use https to load Google Fonts
+1. [](#bugfix)
+    * Fix setting the page language in the html tag
+    * Fix pagination
+    
 # v1.3.0
 ## 01/06/2016
 
