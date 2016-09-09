@@ -1,0 +1,12 @@
+{% extends 'forms/default/form.html.twig' %}
+{% block form_classes %}
+  class="{{ form.classes }} forms"
+{% endblock %}
+
+{% block inner_markup_buttons_start %}
+  <br>
+{% endblock %}
+
+{% block button_classes %}
+  class="{{ button.classes|default('button') }} btn btn-big"
+{% endblock %}
