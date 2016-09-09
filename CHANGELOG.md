@@ -1,3 +1,9 @@
+# v1.5.0
+## 09/09/2016
+
+1. [](#improved)
+    * Update forms for the newest Form plugin markup
+
 # v1.4.0
 ## 07/14/2016
 
@@ -8,14 +14,14 @@
 1. [](#bugfix)
     * Fix setting the page language in the html tag
     * Fix pagination
-    
+
 # v1.3.0
 ## 01/06/2016
 
 1. [](#new)
     * Add form nonce
 1. [](#bugfix)
-	* Fixed footnotes styling    
+	* Fixed footnotes styling
 
 # v1.2.0
 ## 10/29/2015

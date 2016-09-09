@@ -12,6 +12,9 @@ keywords: saturn, theme, modern, fast, responsive, html5, css3, blog
 bugs: https://github.com/getgrav/grav-theme-saturn/issues
 license: MIT
 
+dependencies:
+  - { name: form, version: '>=2.0.2' }
+
 form:
   validation: strict
   fields:
