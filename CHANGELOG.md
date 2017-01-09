@@ -1,3 +1,9 @@
+# v1.x.0
+## xx/xx/2017
+
+1. [](#improved)
+    * Added `header.body_classes` support
+
 # v1.5.0
 ## 09/09/2016
 
