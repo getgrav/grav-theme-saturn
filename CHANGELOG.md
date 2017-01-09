@@ -1,3 +1,9 @@
+# v1.6.0
+## 01/09/2017
+
+1. [](#improved)
+    * Added `header.body_classes` support [https://github.com/getgrav/grav/issues/1240](https://github.com/getgrav/grav/issues/1240)
+
 # v1.5.0
 ## 09/09/2016
 
