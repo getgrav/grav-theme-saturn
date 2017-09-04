@@ -2,7 +2,7 @@
 
 ![Saturn](assets/readme_1.png)
 
-Saturn – Free Grav Theme, is a beautiful cosmic website template. Customize it easily and add your own creative touch. Designed by [Afnizar Nur Ghifari](http://demo.afnizar.com/saturn/#)
+Saturn – Free Grav Theme, is a beautiful cosmic website template. Customize it easily and add your own creative touch. Designed by [Afnizar Nur Ghifari](http://saturn.afnizarnur.com/)
 
 # Features
 
