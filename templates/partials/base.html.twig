@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ grav.language.getLanguage ?: 'en' }}">
+<html lang="{{ grav.language.getActive ?: grav.config.site.default_lang }}">
 <head>
     {% block head %}
         <meta charset="utf-8" />
@@ -12,16 +12,21 @@
             {% do assets.add('jquery',101) %}
             {% do assets.addJs('theme://js/kube.min.js') %}
         {% endblock %}
-        {{ assets.js() }}
+        
         {% block stylesheets %}
             {% do assets.addCss('theme://css/kube.min.css') %}
             {% do assets.addCss('theme://css/font-awesome.min.css') %}
             {% do assets.addCss('theme://css/custom.min.css') %}
         {% endblock %}
-        {{ assets.css() }}
 
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">
+
+        {% block assets deferred %}
+	        {{ assets.css()|raw }}
+            {{ assets.js()|raw }}
+        {% endblock %}
+
         {% endblock head%}
     </head>
     <body class="{{ page.header.body_classes }}">
@@ -83,5 +88,6 @@
             </div>
         </footer>
 
+        {{ assets.js('bottom')|raw }}
     </body>
 </html>
