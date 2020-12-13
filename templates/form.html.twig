@@ -4,7 +4,7 @@
   <header>
     <h2>{{ page.header.title }}</h2>
   </header>
-  {{ content }}
+  {{ content|raw }}
   {% include "forms/form.html.twig" %}
 </article>
 {% endblock %}

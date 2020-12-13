@@ -6,19 +6,19 @@
     {% endif %}
     <hr>
     <div class="in-content">
-        {% if page.header.continue_link is sameas(false) %}
-            {{ page.content }}
+        {% if page.header.continue_link is same as(false) %}
+            {{ page.content|raw }}
             {% if not truncate %}
                 {% set show_prev_next = true %}
                 {% endif %}
                 {% elseif truncate and page.summary != page.content %}
-                {{ page.summary }}
+                {{ page.summary|raw }}
                 <a class="read-more" href="{{ page.url }}">Read more</a>
                 {% elseif truncate %}
-                {{ page.content|truncate(550) }}
+                {{ page.content|truncate(550)|raw }}
                 <a class="read-more" href="{{ page.url }}">Read more</a>
                 {% else %}
-                {{ page.content }}
+                {{ page.content|raw }}
                 {% set show_prev_next = true %}
         {% endif %}
 
@@ -28,8 +28,8 @@
         <div class="units-row">
             <div class="unit-100">
                 <strong>Date: </strong>
-                <span>{{ page.date|date() }}</span> 
-            </div>  
+                <span>{{ page.date|date() }}</span>
+            </div>
             {% if page.header.author %}
                 <div class="unit-100">
                     <strong>Author: </strong>
@@ -40,7 +40,7 @@
                 <div class="unit-100">
                     <strong>Tags: </strong>
                     {% for tag in page.taxonomy.tag %}
-                        <a href="{{ base_url }}/tag{{ config.system.param_sep }}{{ tag }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}  
+                        <a href="{{ base_url }}/tag{{ config.system.param_sep }}{{ tag }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}
                     {% endfor %}
                 </div>
             {% endif %}
