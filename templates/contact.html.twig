@@ -4,7 +4,7 @@
   <header>
     <h2>{{ page.header.title }}</h2>
   </header>
-   {{ page.content }}
+   {{ page.content|raw }}
 
    {% if config.plugins.simple_form.enabled %}
     {% set simple_form_config = page.header.simple_form ?: config.themes.saturn.simple_form %}
